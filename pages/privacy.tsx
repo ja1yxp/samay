@@ -173,7 +173,7 @@ const Privacy = (): JSX.Element => {
               <p>
                 If you have any questions or suggestions about this Privacy
                 Policy, do not hesitate to contact us at{" "}
-                <a href="mailto:anandbaburajan@gmail.com">
+                <a href="mailto:hi@anandbaburajan.com">
                   anandbaburajan@gmail.com
                 </a>
                 .
