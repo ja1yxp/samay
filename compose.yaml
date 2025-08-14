@@ -1,0 +1,26 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_MONGODB_URI: ${NEXT_MONGODB_URI}
+        NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL}
+        NEXT_PUBLIC_ENCRYPTION_KEY: ${NEXT_PUBLIC_ENCRYPTION_KEY}
+        NEXT_PUBLIC_ENCRYPTION_IV: ${NEXT_PUBLIC_ENCRYPTION_IV}
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+    restart: unless-stopped
+    env_file:
+      - .env
+
+  mongo:
+    image: mongo:7.0
+    restart: unless-stopped
+    volumes:
+      - samay-data:/data/db
+
+volumes:
+  samay-data:
