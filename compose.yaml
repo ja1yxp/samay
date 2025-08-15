@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        NEXT_MONGODB_URI: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongo:27017/${MONGO_INITDB_DATABASE}?authSource=admin
+        NEXT_MONGODB_URI: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@database:27017/${MONGO_INITDB_DATABASE}?authSource=admin
         NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL}
         NEXT_PUBLIC_ENCRYPTION_KEY: ${NEXT_PUBLIC_ENCRYPTION_KEY}
         NEXT_PUBLIC_ENCRYPTION_IV: ${NEXT_PUBLIC_ENCRYPTION_IV}
@@ -16,11 +16,11 @@ services:
     env_file:
       - .env
     environment:
-      NEXT_MONGODB_URI: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongo:27017/${MONGO_INITDB_DATABASE}?authSource=admin
+      NEXT_MONGODB_URI: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@database:27017/${MONGO_INITDB_DATABASE}?authSource=admin
     networks:
       - samay-network
 
-  mongo:
+  database:
     image: mongo:7.0
     restart: unless-stopped
     volumes:
