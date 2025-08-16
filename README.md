@@ -53,7 +53,41 @@ If you have suggestions for how Samay could be improved or want to report an iss
 
 ### Docker
 
-Coming soon!
+We have an experimental Docker Compose file that can be used for self-hosting without need for an external database on MongoDB Atlas or other provider. To proceed with self-hosting using Docker Compose:
+
+1. Clone the repository.
+
+   ```shell
+   git clone https://github.com/anandbaburajan/samay
+   cd samay
+   ```
+
+2. Populate the environment variables based on `.env.example` file based on the instructions provided in it.
+
+   ```shell
+   cp .env.example .env
+   ```
+
+3. Start the cluster after setting the needed values.
+
+   ```shell
+   docker compose up --build
+   ```
+
+The web app can be accessed at http://localhost:3000.
+
+> [!TIP]
+>
+> You can stop the cluster using `docker compose down` in the repository directory.
+> This does not delete the volumes and data in it, to delete along with volumes (this also deletes all poll data):
+>
+> ```shell
+> docker compose down --volumes
+> ```
+
+> [!TIP]
+>
+> You may wish to use an external database (on Atlas), for which you can remove the `mongo` section in `compose.yaml` and define `NEXT_MONGODB_URI` with the connection string to the external database.
 
 ### Vercel and MongoDB Atlas
 
@@ -122,7 +156,7 @@ First, make sure you have [Node.js](https://nodejs.org/en/) and [MongoDB](https:
 
 ## Acknowledgements
 
-Thanks to FOSS United for selecting Samay as one of the [winning projects](https://forum.fossunited.org/t/foss-hack-3-0-results/1882) at FOSS Hack 3.0.
+Thanks to [everyone](https://github.com/anandbaburajan/samay/graphs/contributors) who contributed to Samay!
 
 Thanks to these amazing projects which help power Samay:
 
@@ -135,6 +169,8 @@ Thanks to these amazing projects which help power Samay:
 - Mongoose
 - Inter
 - Cal Sans
+
+Thanks to FOSS United for selecting Samay as one of the [winning projects](https://forum.fossunited.org/t/foss-hack-3-0-results/1882) at FOSS Hack 3.0.
 
 ## License
 
