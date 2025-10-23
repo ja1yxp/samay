@@ -34,3 +34,6 @@ services:
 
 volumes:
   samay-data:
+  
+networks:
+  samay-network:
